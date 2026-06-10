@@ -1,0 +1,15 @@
+class Solution:
+    def findMissingAndRepeatedValues(self, grid: List[List[int]]) -> List[int]:
+        n=len(grid)
+        total=n*n
+        repeated=-1
+        missing=-1
+        for num in range(1,total+1):
+            count=0
+            for row in grid:
+                count+=row.count(num)
+            if count==2:
+                repeated=num
+            elif count==0:
+                missing=num
+        return[repeated,missing]
